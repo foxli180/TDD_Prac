@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from lists.models import Item, List
+from lists.forms import ItemForm
 from django.core.exceptions import ValidationError
 
 # Create your views here.
@@ -11,7 +12,7 @@ def home_page(request):
     
     #items = Item.objects.all()
     
-    return render(request,'home.html')
+    return render(request,'home.html',{'form':ItemForm()})
     #else:
     #    new_item_text = ''
         #return HttpResponse(request.POST['item_text'])
