@@ -44,10 +44,10 @@ def _update_settings(source_folder, site_name):
 	append(settings_path, '\nfrom .secret_key import SECRET_KEY')
 
 def _update_virtualenv(source_folder):
-	virtualenv_folder = source_folder + '../virtualenv'
+	virtualenv_folder = source_folder + '/../virtualenv'										 
 	if not exists (virtualenv_folder +'/bin/pip'):
 		run ('virtualenv --python=python3 %s' % (virtualenv_folder,) )
-	run('%s/bin/pip install -r %s/requirements.txt' % (virtualenv_folder,source_folder))
+	run('%s/bin/pip install -i http://pypi.douban.com/simple -r %s/requirements.txt' % (virtualenv_folder,source_folder))
 
 def _update_static_files(source_folder):
 	run ('cd %s && ../virtualenv/bin/python manage.py collectstatic --noinput' %(source_folder))
