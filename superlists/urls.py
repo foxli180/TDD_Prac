@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     #url(r'^lists/(\d+)/add_item$','lists.views.add_item', name='add_item'),
     #url(r'^lists/new$','lists.views.new_list',name='new_list'),
     url(r'^lists/',include('lists.urls')),
+    url(r'^accounts/',include('accounts.urls')),
     # url(r'^blog/', include('blog.urls')),
     #url(r'^admin/', include(admin.site.urls)),
 )
